@@ -42,6 +42,6 @@ The application with Python using the following key libraries:
    git clone https://github.com/Marie-Ishimwe/Movie-Recommender-system.git
    cd Book-Recommender-system
 ##### Appendix
-[Deployed system](https://movie-recommender-systemgit-89erqew5mmuc6kz8xadk6n.streamlit.app/)
-[Video walkthrough](https://www.openai.com)
+- [Deployed system](https://movie-recommender-systemgit-89erqew5mmuc6kz8xadk6n.streamlit.app/)
+- [Video walkthrough](https://www.openai.com)
 
