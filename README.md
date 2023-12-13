@@ -43,5 +43,5 @@ The application with Python using the following key libraries:
    cd Book-Recommender-system
 ##### Appendix
 - [Deployed system](https://movie-recommender-systemgit-89erqew5mmuc6kz8xadk6n.streamlit.app/)
-- [Video walkthrough]([https://www.openai.com](https://drive.google.com/drive/folders/15xXUMxKSo8RHzYKvCAYyqsylWDoMiWDJ?usp=sharing)https://drive.google.com/drive/folders/15xXUMxKSo8RHzYKvCAYyqsylWDoMiWDJ?usp=sharing)
+- [Video walkthrough](https://drive.google.com/drive/folders/15xXUMxKSo8RHzYKvCAYyqsylWDoMiWDJ?usp=sharing))
 
