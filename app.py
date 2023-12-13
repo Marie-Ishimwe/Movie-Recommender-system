@@ -4,14 +4,30 @@ import pickle
 import pandas as pd
 import requests
 
-def get_poster(movie_title):
-    url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(
-        movie_title)
-    data = requests.get(url)
-    data = data.json()
-    poster_path = data['poster_path']
-    full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-    return full_path
+def get_poster(movie_title, api_key="d7fb5deb7bf602d49ae830246dd05f56"):
+    base_url = "https://api.themoviedb.org/3/search/movie"
+    params = {
+        "api_key": api_key,
+        "query": movie_title,
+        "language": "en-US",
+        "include_adult": "false"
+    }
+
+    try:
+        response = requests.get(base_url, params=params)
+        response.raise_for_status()
+        data = response.json()
+
+        if data["total_results"] > 0:
+            poster_path = data["results"][0]["poster_path"]
+            full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+            return full_path
+        else:
+            # Return a default image URL or a placeholder image
+            return "https://example.com/default_poster_image.jpg"
+    except requests.RequestException as e:
+        # Return a default image URL or a placeholder image
+        return "https://example.com/default_poster_image.jpg"
 
 def recommender(movies):
     movies_index = movie[movie['title'] == movies].index[0]
@@ -27,10 +43,10 @@ def recommender(movies):
     return recommended_movie, recommended_movie_poster
 
 
-movie_dict = pickle.load(open('movies_list.pkl', 'rb'))
+movie_dict = pd.read_pickle('movies_list.pkl')
 movie = pd.DataFrame(movie_dict)
 
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+similarity = pd.read_pickle('similarity.pkl')
 
 st.title('Movie Recommendation System')
 
